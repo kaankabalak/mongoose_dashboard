@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongoose Dashboard</title>
+</head>
+<body>
+    <h1>Edit a Mongoose</h1>
+    <% for (var i=0; i < animaldata.length; i++) { %>
+        <h3><%= animaldata[i].name %> (ID: <%= animaldata[i]._id %>)</h3>
+        <p><%= animaldata[i].description %></p>
+        <% if (i != animaldata.length - 1) { %>
+        <hr>
+        <% } %>
+    <% } %>
+	<form action='/mongooses/<%= animaldata[0]._id %>' method='post'>
+		Edit name: <input type='text' name='name'>
+		<br><br>
+        Edit description: <br>
+        <textarea rows="4" cols="30" name='description'></textarea><br>
+		<input type='submit' value='Submit'> <br>
+	</form>
+</body>
+</html>

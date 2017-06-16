@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongoose Dashboard</title>
+</head>
+<body>
+    <h1>Here are all the mongooses!</h1>
+    <a href="mongooses/new">Create a mongoose</a>
+	<ul>
+		<% for (var i=0; i < animaldata.length; i++) { %>
+			<h3><%= animaldata[i].name %> (ID: <%= animaldata[i]._id %>)</h3>
+            <p><%= animaldata[i].description %></p>
+            <a href="mongooses/edit/<%= animaldata[i]._id %>"><button>Edit</button></a><br>
+            <form action='/mongooses/destroy/<%= animaldata[0]._id %>' method='post'><input type='submit' value='Delete'></form>
+            <% if (i != animaldata.length - 1) { %>
+            <hr>
+            <% } %>
+        <% } %>
+	</ul>
+</body>
+</html>
